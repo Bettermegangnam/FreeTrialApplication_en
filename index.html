@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us</title>
+    <title>Application Form</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -20,6 +20,14 @@
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
+        .clinic-title {
+            text-align: center;
+            font-size: 28px; /* Larger font size */
+            font-weight: 700;
+            color: #e4b1b0; /* Pink color same as Submit button */
+            letter-spacing: 3px; /* Increased letter spacing */
+            margin-bottom: 15px;
+        }
         h1 {
             text-align: center;
             color: #333;
@@ -28,63 +36,130 @@
             margin-top: 20px;
         }
         .form-group {
-            margin-bottom: 20px; /* Increased spacing between fields */
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .form-group.inline {
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
         label {
             display: block;
             margin-bottom: 5px;
             color: #333;
         }
-        input, textarea {
+        input, textarea, select {
             width: 100%;
             padding: 10px;
             font-size: 16px;
             font-family: 'Noto Sans', sans-serif;
-            background-color: #f9f9f9; /* Neutral background for inputs */
+            background-color: #f9f9f9;
             border: 1px solid #ccc;
-            color: #333; /* Text color */
+            color: #333;
             border-radius: 4px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             box-sizing: border-box;
         }
-        input:focus, textarea:focus {
-            background-color: #fff; /* White background when focused */
-            border-color: #e67371; /* Highlighted pink border when focused */
-            box-shadow: 0 2px 10px rgba(230, 115, 113, 0.3); /* Pink focus shadow */
+        input:focus, textarea:focus, select:focus {
+            background-color: #fff;
+            border-color: #e67371;
+            box-shadow: 0 2px 10px rgba(230, 115, 113, 0.3);
             outline: none;
         }
         button {
             width: 100%;
             padding: 10px;
             font-size: 16px;
-            background-color: #e4b1b0; /* Light pink background */
+            background-color: #e4b1b0;
             color: white;
             border: none;
             border-radius: 4px;
             cursor: pointer;
-            font-family: 'Noto Sans', sans-serif;
         }
         button:hover {
-            background-color: #c98988; /* Darker pink on hover */
+            background-color: #c98988;
+        }
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        .checkbox-group input[type="checkbox"] {
+            width: 15px;
+            height: 15px;
+            margin-right: 10px;
+            margin-top: 2px;
+        }
+        .agreement-text {
+            font-size: 12px; /* Smaller agreement text */
+            color: #555;
+            line-height: 1.5;
+        }
+        .agreement-text strong {
+            font-size: 14px; /* Slightly larger heading */
+            color: #333;
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <!-- BETTER ME CLINIC Title -->
+        <div class="clinic-title">BETTER ME CLINIC</div>
+
+        <!-- Application Form Title -->
         <h1>Application Form for Free Trial Participants 😍</h1>
-        <form>
+        
+        <form action="https://formspree.io/f/xrbbnvol" method="POST">
+            <!-- Name Field -->
             <div class="form-group">
-                <label for="name">Name👋</label>
+                <label for="name">Name</label>
                 <input type="text" id="name" name="name" placeholder="Enter your name" required>
             </div>
+            
+            <!-- Email Field -->
             <div class="form-group">
-                <label for="email">Email or Social Media Account 📧</label>
+                <label for="email">Email 📧</label>
                 <input type="email" id="email" name="email" placeholder="Enter your email" required>
             </div>
+            
+            <!-- SNS Account Field -->
             <div class="form-group">
-                <label for="message">Desired Procedures or Inquiries💗</label>
-                <textarea id="message" name="message" rows="5" placeholder="Enter your message" required></textarea>
+                <label for="sns">SNS Account</label>
+                <div class="form-group inline">
+                    <input type="text" id="sns" name="sns" placeholder="Enter your SNS account">
+                    <select id="sns-type" name="sns_type">
+                        <option value="instagram">Instagram</option>
+                        <option value="facebook">Facebook</option>
+                        <option value="twitter">X(Twitter)</option>
+                        <option value="youtube">Youtube</option>
+                        <option value="tiktok">TikTok</option>
+                        <option value="linkedin">LinkedIn</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
             </div>
+            
+            <!-- Desired Procedures or Inquiries Field -->
+            <div class="form-group">
+                <label for="message">Desired Procedures or Inquiries</label>
+                <textarea id="message" name="message" rows="5" placeholder="Enter your desired procedure or questions" required></textarea>
+            </div>
+            
+            <!-- Privacy Agreement -->
+            <div class="checkbox-group">
+                <input type="checkbox" id="privacy" name="privacy" required>
+                <div class="agreement-text">
+                    <strong>Consent for Providing and Using Personal Information</strong><br>
+                    By checking this box, you agree to provide your personal information, including your name, email, and any other details entered in this form. 
+                    The information will be used solely for the purpose of processing your application, contacting you about the free trial, and handling inquiries. 
+                    Your information will not be shared with third parties without your consent, and it will be securely stored in accordance with applicable privacy laws.
+                    <br><br>
+                    For any questions or to request data removal, please contact us at support@example.com.
+                </div>
+            </div>
+            
+            <!-- Submit Button -->
             <button type="submit">Submit</button>
         </form>
     </div>
